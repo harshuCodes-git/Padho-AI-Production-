@@ -150,7 +150,7 @@ export default function ResumeBuilder({ initialContent }) {
     <div data-color-mode="light" className="space-y-4">
       <div className="flex flex-col md:flex-row justify-between items-center gap-2">
         <h1 className="font-bold gradient-title text-5xl md:text-6xl">
-          Resume Builder
+          Notes Builder
         </h1>
         <div className="space-x-2">
           <Button
@@ -258,7 +258,7 @@ export default function ResumeBuilder({ initialContent }) {
 
             {/* Summary */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Professional Summary</h3>
+              <h3 className="text-lg font-medium">Topic Summary</h3>
               <Controller
                 name="summary"
                 control={control}
@@ -266,7 +266,7 @@ export default function ResumeBuilder({ initialContent }) {
                   <Textarea
                     {...field}
                     className="h-32"
-                    placeholder="Write a compelling professional summary..."
+                    placeholder="Write a compelling summary..."
                     error={errors.summary}
                   />
                 )}
@@ -298,7 +298,7 @@ export default function ResumeBuilder({ initialContent }) {
 
             {/* Experience */}
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Work Experience</h3>
+              <h3 className="text-lg font-medium">Learning Topics</h3>
               <Controller
                 name="experience"
                 control={control}
@@ -339,25 +339,7 @@ export default function ResumeBuilder({ initialContent }) {
             </div>
 
             {/* Projects */}
-            <div className="space-y-4">
-              <h3 className="text-lg font-medium">Projects</h3>
-              <Controller
-                name="projects"
-                control={control}
-                render={({ field }) => (
-                  <EntryForm
-                    type="Project"
-                    entries={field.value}
-                    onChange={field.onChange}
-                  />
-                )}
-              />
-              {errors.projects && (
-                <p className="text-sm text-red-500">
-                  {errors.projects.message}
-                </p>
-              )}
-            </div>
+
           </form>
         </TabsContent>
 

@@ -152,7 +152,7 @@ export function EntryForm({ type, entries, onChange }) {
               </div>
               <div className="space-y-2">
                 <Input
-                  placeholder="Organization/Company"
+                  placeholder="Subject/Organization"
                   {...register("organization")}
                   error={errors.organization}
                 />
@@ -192,24 +192,11 @@ export function EntryForm({ type, entries, onChange }) {
               </div>
             </div>
 
-            <div className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                id="current"
-                {...register("current")}
-                onChange={(e) => {
-                  setValue("current", e.target.checked);
-                  if (e.target.checked) {
-                    setValue("endDate", "");
-                  }
-                }}
-              />
-              <label htmlFor="current">Current {type}</label>
-            </div>
+
 
             <div className="space-y-2">
               <Textarea
-                placeholder={`Description of your ${type.toLowerCase()}`}
+                placeholder={`Add notes according to your ${type.toLowerCase()}`}
                 className="h-32"
                 {...register("description")}
                 error={errors.description}
@@ -253,7 +240,7 @@ export function EntryForm({ type, entries, onChange }) {
             </Button>
             <Button type="button" onClick={handleAdd}>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add Entry
+              Add Topics
             </Button>
           </CardFooter>
         </Card>

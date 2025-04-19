@@ -17,31 +17,36 @@ export async function generateCoverLetter(data) {
 
   if (!user) throw new Error("User not found");
 
-  const prompt = `
-    Write a professional cover letter for a ${data.jobTitle} position at ${
+  const prompt = `Write a professional summary based on the provided description input.
+
+**Input Description:**  
+${data.jobDescription}
+
+**Metadata:**  
+- Source Type: ${
     data.companyName
-  }.
-    
-    About the candidate:
-    - Industry: ${user.industry}
-    - Years of Experience: ${user.experience}
-    - Skills: ${user.skills?.join(", ")}
-    - Professional Background: ${user.bio}
-    
-    Job Description:
-    ${data.jobDescription}
-    
-    Requirements:
-    1. Use a professional, enthusiastic tone
-    2. Highlight relevant skills and experience
-    3. Show understanding of the company's needs
-    4. Keep it concise (max 400 words)
-    5. Use proper business letter formatting in markdown
-    6. Include specific examples of achievements
-    7. Relate candidate's background to job requirements
-    
-    Format the letter in markdown.
-  `;
+  }         // e.g., jobPosting, productSpec, companyProfile  
+- Title: ${
+    data.jobTitle
+  }                   
+- Company Name: ${data.companyName}    
+   
+
+- Keywords: ${data.keywords?.join(
+    ", "
+  )}  // Array of important terms or skills from the description  
+
+**Summary Requirements:**  
+1. Use a professional, informative tone  
+2. Summarize the full content of the description clearly and concisely  
+3. Ensure all key details and intent are preserved  
+4. Highlight relevant features, responsibilities, goals, or requirements  
+5. Format the output in paragraph or bullet form depending on content type  
+6. Limit the length to under 200 words  
+7. Do not omit any important information from the original description  
+
+Return only the summary in plain text. No additional headings or formatting.
+`;
 
   try {
     const result = await model.generateContent(prompt);
@@ -60,8 +65,8 @@ export async function generateCoverLetter(data) {
 
     return coverLetter;
   } catch (error) {
-    console.error("Error generating cover letter:", error.message);
-    throw new Error("Failed to generate cover letter");
+    console.error("Error generating summary:", error.message);
+    throw new Error("Failed to generate summary");
   }
 }
 

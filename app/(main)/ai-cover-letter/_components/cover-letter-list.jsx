@@ -42,9 +42,10 @@ export default function CoverLetterList({ coverLetters }) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>No Cover Letters Yet</CardTitle>
+          <CardTitle>No Notes are there</CardTitle>
           <CardDescription>
-            Create your first cover letter to get started
+            Create a new note to get started. Click the button below to create a new
+            note.
           </CardDescription>
         </CardHeader>
       </Card>

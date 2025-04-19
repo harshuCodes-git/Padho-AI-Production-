@@ -10,16 +10,16 @@ export default function NewCoverLetterPage() {
         <Link href="/ai-cover-letter">
           <Button variant="link" className="gap-2 pl-0">
             <ArrowLeft className="h-4 w-4" />
-            Back to Cover Letters
+            Back to summary
           </Button>
         </Link>
 
         <div className="pb-6">
           <h1 className="text-6xl font-bold gradient-title">
-            Create Cover Letter
+            Create Your Short Summary 
           </h1>
           <p className="text-muted-foreground">
-            Generate a tailored cover letter for your job application
+            Generate a tailored summary for your subject 
           </p>
         </div>
       </div>

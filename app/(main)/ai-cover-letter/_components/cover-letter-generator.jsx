@@ -61,7 +61,7 @@ export default function CoverLetterGenerator() {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Job Details</CardTitle>
+          <CardTitle>Notes Details</CardTitle>
           <CardDescription>
             Provide information about the position you're applying for
           </CardDescription>
@@ -71,10 +71,10 @@ export default function CoverLetterGenerator() {
             {/* Form fields remain the same */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="companyName">Company Name</Label>
+                <Label htmlFor="companyName">Subject Name</Label>
                 <Input
                   id="companyName"
-                  placeholder="Enter company name"
+                  placeholder="Enter subject name"
                   {...register("companyName")}
                 />
                 {errors.companyName && (
@@ -85,10 +85,10 @@ export default function CoverLetterGenerator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="jobTitle">Job Title</Label>
+                <Label htmlFor="jobTitle">Topic</Label>
                 <Input
                   id="jobTitle"
-                  placeholder="Enter job title"
+                  placeholder="Enter Topic"
                   {...register("jobTitle")}
                 />
                 {errors.jobTitle && (
@@ -100,10 +100,10 @@ export default function CoverLetterGenerator() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="jobDescription">Job Description</Label>
+              <Label htmlFor="jobDescription"> Description</Label>
               <Textarea
                 id="jobDescription"
-                placeholder="Paste the job description here"
+                placeholder="Enter the subject description"
                 className="h-32"
                 {...register("jobDescription")}
               />
