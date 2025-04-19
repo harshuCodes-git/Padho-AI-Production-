@@ -10,14 +10,14 @@ export default function MockInterviewPage() {
         <Link href="/interview">
           <Button variant="link" className="gap-2 pl-0">
             <ArrowLeft className="h-4 w-4" />
-            Back to Interview Preparation
+            Back to Mock Preparation
           </Button>
         </Link>
 
         <div>
-          <h1 className="text-6xl font-bold gradient-title">Mock Interview</h1>
+          <h1 className="text-6xl font-bold gradient-title">Enhance your Ability</h1>
           <p className="text-muted-foreground">
-            Test your knowledge with industry-specific questions
+            Test your knowledge with topic-specific questions
           </p>
         </div>
       </div>

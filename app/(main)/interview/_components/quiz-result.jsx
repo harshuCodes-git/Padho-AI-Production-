@@ -4,6 +4,7 @@ import { Trophy, CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardContent, CardFooter } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
 
 export default function QuizResult({
   result,
@@ -61,7 +62,18 @@ export default function QuizResult({
       </CardContent>
 
       {!hideStartNew && (
-        <CardFooter>
+        <CardFooter className="flex flex-col gap-2">
+          {result.quizScore < 75 && (
+            <Link href="https://ai-mock-interviews-cwv6.vercel.app/">
+              <Button
+                variant="ghost"
+                className="w-full"
+                onClick={() => alert("Redirect to resources or prep material")}
+              >
+                Prepare More Mentor
+              </Button>
+            </Link>
+          )}
           <Button onClick={onStartNew} className="w-full">
             Start New Quiz
           </Button>
