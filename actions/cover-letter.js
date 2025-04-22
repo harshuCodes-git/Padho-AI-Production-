@@ -17,36 +17,52 @@ export async function generateCoverLetter(data) {
 
   if (!user) throw new Error("User not found");
 
-  const prompt = `Write a professional summary based on the provided description input.
+//   const prompt = `Write a professional summary based on the provided description input.
 
-**Input Description:**  
-${data.jobDescription}
+// **Input Description:**  
+// ${data.jobDescription}
 
-**Metadata:**  
-- Source Type: ${
-    data.companyName
-  }         // e.g., jobPosting, productSpec, companyProfile  
-- Title: ${
-    data.jobTitle
-  }                   
-- Company Name: ${data.companyName}    
+// **Metadata:**  
+// - Source Type: ${
+//     data.companyName
+//   }         // e.g., jobPosting, productSpec, companyProfile  
+// - Title: ${
+//     data.jobTitle
+//   }                   
+// - Company Name: ${data.companyName}    
    
 
-- Keywords: ${data.keywords?.join(
-    ", "
-  )}  // Array of important terms or skills from the description  
+// - Keywords: ${data.keywords?.join(
+//     ", "
+//   )}  // Array of important terms or skills from the description  
 
-**Summary Requirements:**  
-1. Use a professional, informative tone  
-2. Summarize the full content of the description clearly and concisely  
-3. Ensure all key details and intent are preserved  
-4. Highlight relevant features, responsibilities, goals, or requirements  
-5. Format the output in paragraph or bullet form depending on content type  
-6. Limit the length to under 200 words  
-7. Do not omit any important information from the original description  
+// **Summary Requirements:**  
+// 1. Use a professional, informative tone  
+// 2. Summarize the full content of the description clearly and concisely  
+// 3. Ensure all key details and intent are preserved  
+// 4. Highlight relevant features, responsibilities, goals, or requirements  
+// 5. Format the output in paragraph or bullet form depending on content type  
+// 6. Limit the length to under 200 words  
+// 7. Do not omit any important information from the original description  
 
-Return only the summary in plain text. No additional headings or formatting.
-`;
+// Return only the summary in plain text. No additional headings or formatting.
+// `;
+
+const prompt = `Generate concise, well-structured study notes for the subject ${data.jobTitle}, covering the topic ${data.jobDescription}.
+
+The notes should include:
+
+A brief introduction
+
+Key definitions and concepts
+
+Important formulas or code snippets (if applicable)
+
+Diagrams or bullet points for clarity
+
+Real-world examples or use-cases (if relevant)
+
+The tone should be beginner-friendly and easy to revise.`;
 
   try {
     const result = await model.generateContent(prompt);

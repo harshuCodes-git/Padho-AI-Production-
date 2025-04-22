@@ -79,18 +79,18 @@ export default async function Header() {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/resume" className="flex items-center gap-2">
+                  <Link
+                    href="/ai-cover-letter"
+                    className="flex items-center gap-2"
+                  >
                     <FileText className="h-4 w-4" />
                     Notes Builder
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link
-                    href="/ai-cover-letter"
-                    className="flex items-center gap-2"
-                  >
-                    <PenBox className="h-4 w-4" />
-                    Subject Summary
+                  <Link href="/dashboard" className="flex items-center gap-2">
+                    <LayoutDashboard className="h-4 w-4" />
+                    Industry Insights
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>

@@ -43,7 +43,7 @@ export default function CoverLetterGenerator() {
   // Update content when letter is generated
   useEffect(() => {
     if (generatedLetter) {
-      toast.success("Cover letter generated successfully!");
+      toast.success("Notes generated successfully!");
       router.push(`/ai-cover-letter/${generatedLetter.id}`);
       reset();
     }
@@ -53,7 +53,7 @@ export default function CoverLetterGenerator() {
     try {
       await generateLetterFn(data);
     } catch (error) {
-      toast.error(error.message || "Failed to generate cover letter");
+      toast.error(error.message || "Failed to generate short notes.");
     }
   };
 
@@ -122,7 +122,7 @@ export default function CoverLetterGenerator() {
                     Generating...
                   </>
                 ) : (
-                  "Generate Cover Letter"
+                  "Generate Short Notes"
                 )}
               </Button>
             </div>

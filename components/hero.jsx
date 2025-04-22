@@ -46,9 +46,9 @@ const HeroSection = () => {
               Get Started
             </Button>
           </Link>
-          <Link href="/dashboard">
+          <Link href="https://ai-mock-interviews-cwv6.vercel.app/">
             <Button size="lg" variant="outline" className="px-8">
-              Watch Demo
+              Mock-Interview
             </Button>
           </Link>
         </div>
