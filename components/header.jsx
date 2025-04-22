@@ -69,7 +69,7 @@ export default async function Header() {
                     target="_blank"
                   >
                     <SquareUserRound className="h-4 w-4" />
-                    Verbal Mock
+                    Mock Interview 
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
