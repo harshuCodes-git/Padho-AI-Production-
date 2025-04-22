@@ -263,7 +263,7 @@ export default function ResumeBuilder({ initialContent }) {
               {resumeMode === "preview" ? (
                 <>
                   <Edit className="h-4 w-4" />
-                  Edit Resume
+                  Edit Notes
                 </>
               ) : (
                 <>
