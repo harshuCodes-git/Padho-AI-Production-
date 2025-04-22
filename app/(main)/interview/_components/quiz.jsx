@@ -16,37 +16,31 @@ import { generateQuiz, saveQuizResult } from "@/actions/interview";
 import QuizResult from "./quiz-result";
 import useFetch from "@/hooks/use-fetch";
 import { BarLoader } from "react-spinners";
-
 export default function Quiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [showExplanation, setShowExplanation] = useState(false);
-
   const {
     loading: generatingQuiz,
     fn: generateQuizFn,
     data: quizData,
   } = useFetch(generateQuiz);
-
   const {
     loading: savingResult,
     fn: saveQuizResultFn,
     data: resultData,
     setData: setResultData,
   } = useFetch(saveQuizResult);
-
   useEffect(() => {
     if (quizData) {
       setAnswers(new Array(quizData.length).fill(null));
     }
   }, [quizData]);
-
   const handleAnswer = (answer) => {
     const newAnswers = [...answers];
     newAnswers[currentQuestion] = answer;
     setAnswers(newAnswers);
   };
-
   const handleNext = () => {
     if (currentQuestion < quizData.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -55,7 +49,6 @@ export default function Quiz() {
       finishQuiz();
     }
   };
-
   const calculateScore = () => {
     let correct = 0;
     answers.forEach((answer, index) => {
@@ -65,7 +58,6 @@ export default function Quiz() {
     });
     return (correct / quizData.length) * 100;
   };
-
   const finishQuiz = async () => {
     const score = calculateScore();
     try {
@@ -75,7 +67,6 @@ export default function Quiz() {
       toast.error(error.message || "Failed to save quiz results");
     }
   };
-
   const startNewQuiz = () => {
     setCurrentQuestion(0);
     setAnswers([]);
@@ -83,12 +74,9 @@ export default function Quiz() {
     generateQuizFn();
     setResultData(null);
   };
-
   if (generatingQuiz) {
     return <BarLoader className="mt-4" width={"100%"} color="gray" />;
   }
-
-  // Show results if quiz is completed
   if (resultData) {
     return (
       <div className="mx-2">
@@ -96,7 +84,6 @@ export default function Quiz() {
       </div>
     );
   }
-
   if (!quizData) {
     return (
       <Card className="mx-2">
@@ -117,9 +104,7 @@ export default function Quiz() {
       </Card>
     );
   }
-
   const question = quizData[currentQuestion];
-
   return (
     <Card className="mx-2">
       <CardHeader>

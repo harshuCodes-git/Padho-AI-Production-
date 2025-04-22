@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "dependency-cruiser": "^16.10.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "postcss": "^8",

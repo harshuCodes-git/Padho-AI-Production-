@@ -1,6 +1,5 @@
 // app/resume/_components/entry-form.jsx
 "use client";
-
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,19 +24,15 @@ const formatDisplayDate = (dateString) => {
   if (!dateString) return "";
   const date = parse(dateString, "yyyy-MM", new Date());
   return format(date, "MMM yyyy");
-};
-
-export function EntryForm({ type, entries, onChange }) {
+};export function EntryForm({ type, entries, onChange }) {
   const [isAdding, setIsAdding] = useState(false);
-
   const {
     register,
     handleSubmit: handleValidation,
     formState: { errors },
     reset,
     watch,
-    setValue,
-  } = useForm({
+    setValue,} = useForm({
     resolver: zodResolver(entrySchema),
     defaultValues: {
       title: "",
@@ -48,9 +43,7 @@ export function EntryForm({ type, entries, onChange }) {
       current: false,
     },
   });
-
   const current = watch("current");
-
   const handleAdd = handleValidation((data) => {
     const formattedEntry = {
       ...data,
@@ -63,20 +56,16 @@ export function EntryForm({ type, entries, onChange }) {
     reset();
     setIsAdding(false);
   });
-
   const handleDelete = (index) => {
     const newEntries = entries.filter((_, i) => i !== index);
     onChange(newEntries);
   };
-
   const {
     loading: isImproving,
     fn: improveWithAIFn,
     data: improvedContent,
     error: improveError,
   } = useFetch(improveWithAI);
-
-  // Add this effect to handle the improvement result
   useEffect(() => {
     if (improvedContent && !isImproving) {
       setValue("description", improvedContent);
@@ -87,7 +76,6 @@ export function EntryForm({ type, entries, onChange }) {
     }
   }, [improvedContent, improveError, isImproving, setValue]);
 
-  // Replace handleImproveDescription with this
   const handleImproveDescription = async () => {
     const description = watch("description");
     if (!description) {
@@ -97,10 +85,9 @@ export function EntryForm({ type, entries, onChange }) {
 
     await improveWithAIFn({
       current: description,
-      type: type.toLowerCase(), // 'experience', 'education', or 'project'
+      type: type.toLowerCase(), 
     });
   };
-
   return (
     <div className="space-y-4">
       <div className="space-y-4">
@@ -256,6 +243,4 @@ export function EntryForm({ type, entries, onChange }) {
           Add {type}
         </Button>
       )}
-    </div>
-  );
-}
+    </div>);}

@@ -33,13 +33,11 @@ import { updateUser } from "@/actions/user";
 const OnboardingForm = ({ industries }) => {
   const router = useRouter();
   const [selectedIndustry, setSelectedIndustry] = useState(null);
-
   const {
     loading: updateLoading,
     fn: updateUserFn,
     data: updateResult,
   } = useFetch(updateUser);
-
   const {
     register,
     handleSubmit,
@@ -49,7 +47,6 @@ const OnboardingForm = ({ industries }) => {
   } = useForm({
     resolver: zodResolver(onboardingSchema),
   });
-
   const onSubmit = async (values) => {
     try {
       const formattedIndustry = `${values.industry}-${values.subIndustry
@@ -64,7 +61,6 @@ const OnboardingForm = ({ industries }) => {
       console.error("Onboarding error:", error);
     }
   };
-
   useEffect(() => {
     if (updateResult?.success && !updateLoading) {
       toast.success("Profile completed successfully!");
@@ -72,9 +68,7 @@ const OnboardingForm = ({ industries }) => {
       router.refresh();
     }
   }, [updateResult, updateLoading]);
-
   const watchIndustry = watch("industry");
-
   return (
     <div className="flex items-center justify-center bg-background">
       <Card className="w-full max-w-lg mt-10 mx-2">
