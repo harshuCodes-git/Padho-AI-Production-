@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
+import ZapierChatbot from "@/components/ZapierChatbot";
 
 const inter = Inter({ subsets: ["latin"] });
 

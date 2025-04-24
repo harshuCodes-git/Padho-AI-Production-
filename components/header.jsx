@@ -8,6 +8,7 @@ import {
   ChevronDown,
   StarsIcon,
   SquareUserRound,
+  MessageCircleQuestion,
 } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
@@ -69,7 +70,7 @@ export default async function Header() {
                     target="_blank"
                   >
                     <SquareUserRound className="h-4 w-4" />
-                    Mock Interview 
+                    Mock Interview
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -91,6 +92,13 @@ export default async function Header() {
                   <Link href="/dashboard" className="flex items-center gap-2">
                     <LayoutDashboard className="h-4 w-4" />
                     Industry Insights
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/ask-doubt-page" className="flex items-center gap-2">
+                   
+                    <MessageCircleQuestion className="h-4 w-4" />
+                    Ask Doubt
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
