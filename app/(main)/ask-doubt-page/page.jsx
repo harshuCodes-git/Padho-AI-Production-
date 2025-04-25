@@ -17,9 +17,7 @@ const page = () => {
           <DoubtSolver />
         </div>
       </main>
-      <div className="w-screen h-screen">
-        <ZapierChatbot />
-      </div>
+
     </>
   );
 }

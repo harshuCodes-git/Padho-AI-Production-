@@ -96,7 +96,7 @@ export function DoubtSolver() {
       {/* Fixed Input Box */}
       <form
         onSubmit={handleSubmit}
-        className="fixed bottom-0 left-10 right-10 bg-background border-t border-muted p-8 flex flex-col gap-2"
+        className="fixed bottom-0 left-0 right-0 bg-background border-t border-muted p-8 flex flex-col gap-2"
       >
         <Textarea
           placeholder="Ask your doubt here..."
